@@ -1,0 +1,45 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - demander_meteo
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+    - text: "Bonjour ! Comment puis-je vous aider ?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Courage, ça va s'arranger !"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+    - text: "Est-ce que cela vous a aidé ?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+    - text: "Je suis ravi que vous vous sentiez bien !"
+
+  utter_goodbye:
+    - text: "Bye! Have a great day."
+    - text: "Au revoir ! À bientôt."
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+    - text: "Je suis un bot, propulsé par Rasa."
+
+  utter_meteo:
+    - text: "Il fait beau aujourd'hui avec des températures agréables."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
