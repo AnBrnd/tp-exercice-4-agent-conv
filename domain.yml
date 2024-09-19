@@ -5,6 +5,8 @@ intents:
   - ask_hotel_reservation
   - provide_city
   - provide_date
+  - provide_room_type
+  - provide_number_of_people
   - affirm
   - deny
   - thanks
@@ -12,6 +14,8 @@ intents:
 entities:
   - city
   - date
+  - room_type
+  - number_of_people
 
 slots:
   city:
@@ -28,6 +32,20 @@ slots:
       - type: from_entity
         entity: date
 
+  room_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: room_type
+
+  number_of_people:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: number_of_people
+
 responses:
   utter_greet:
     - text: "Bonjour, que puis-je faire pour vous ?"
@@ -38,14 +56,20 @@ responses:
   utter_ask_date:
     - text: "Pour quelle date souhaitez-vous réserver ?"
 
+  utter_ask_room_type:
+    - text: "Quel type de chambre souhaitez-vous réserver ?"
+
+  utter_ask_number_of_people:
+    - text: "Pour combien de personnes souhaitez-vous réserver ?"
+
   utter_confirm_reservation:
-    - text: "Je résume. Vous voulez un hôtel pour le {date} à {city}. C’est bien ça ?"
+    - text: "Je résume. Vous voulez une chambre {room_type} pour {number_of_people} personne(s) à {city} pour le {date}. C’est bien ça ?"
 
   utter_affirm:
     - text: "Super ! Je procède à la réservation."
 
   utter_deny:
-    - text: "D'accord, recommençons. Que puis-je faire pour vous ?"
+    - text: "D'accord, recommençons."
 
   utter_thanks:
     - text: "Je vous en prie ! N'hésitez pas à me recontacter si vous avez besoin de quoi que ce soit."
@@ -53,4 +77,3 @@ responses:
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-

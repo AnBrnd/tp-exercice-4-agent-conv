@@ -2,7 +2,7 @@ version: "3.1"
 
 stories:
 
-  - story: réservation d'hôtel
+  - story: réservation d'hôtel complète
     steps:
       - intent: greet
       - action: utter_greet
@@ -11,9 +11,13 @@ stories:
       - intent: provide_city
       - action: utter_ask_date
       - intent: provide_date
+      - action: utter_ask_room_type
+      - intent: provide_room_type
+      - action: utter_ask_number_of_people
+      - intent: provide_number_of_people
       - action: utter_confirm_reservation
       - intent: affirm
-      - action: utter_affirm
+      - action: utter_thanks
 
   - story: Handle refusal and restart
     steps:
@@ -24,6 +28,12 @@ stories:
       - intent: provide_city
       - action: utter_ask_date
       - intent: provide_date
+      - action: utter_ask_room_type
+      - intent: provide_room_type
+      - action: utter_ask_number_of_people
+      - intent: provide_number_of_people
       - action: utter_confirm_reservation
       - intent: deny
       - action: utter_deny
+      - action: utter_greet
+      - action: action_listen

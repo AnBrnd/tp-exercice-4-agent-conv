@@ -17,6 +17,16 @@ rules:
       - intent: provide_city
       - action: utter_ask_date
 
+  - rule: Ask for room type after date
+    steps:
+      - intent: provide_date
+      - action: utter_ask_room_type
+
+  - rule: Ask for number of people after room type
+    steps:
+      - intent: provide_room_type
+      - action: utter_ask_number_of_people
+
   - rule: Respond to thanks
     steps:
       - intent: thanks
@@ -26,3 +36,5 @@ rules:
     steps:
       - intent: deny
       - action: utter_deny
+      - action: utter_greet
+      - action: action_listen

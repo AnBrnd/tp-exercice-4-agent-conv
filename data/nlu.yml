@@ -37,6 +37,28 @@ nlu:
       - [12 janvier](date) à [Saint Malo](city)
       - Le [12/01](date)
 
+  - intent: provide_room_type
+    examples: |
+      - Je veux une [chambre double](room_type)
+      - [Chambre simple](room_type)
+      - Une [chambre pour une personne](room_type)
+      - [Chambre familiale](room_type)
+      - Je préfère une [suite](room_type)
+
+  - intent: provide_number_of_people
+    examples: |
+      - C'est pour [une personne](number_of_people)
+      - Nous serons [deux](number_of_people)
+      - [Une personne](number_of_people)
+      - Nous serons [trois](number_of_people)
+      - [Quatre personnes](number_of_people)
+      - [Deux adultes et un enfant](number_of_people)
+      - C'est pour [une personne](number_of_people)
+      - [Deux adultes](number_of_people)
+      - Réservation pour [deux personnes](number_of_people)
+      - Il y aura [trois personnes](number_of_people)
+      - Nous serons [cinq](number_of_people)
+
   - intent: affirm
     examples: |
       - oui
