@@ -3,151 +3,65 @@ version: "3.1"
 nlu:
   - intent: greet
     examples: |
-      - hey
-      - hello
-      - hi
-      - hello there
-      - good morning
-      - good evening
-      - hey there
-      - let's go
-      - hey dude
-      - goodmorning
-      - goodevening
-      - good afternoon
-      - hé
       - bonjour
       - salut
-      - bonjour à toi
-      - bon matin
+      - hello
       - bonsoir
-      - hé toi
-      - allons-y
-      - salut mec
 
-  - intent: goodbye
+  - intent: ask_hotel_reservation
     examples: |
-      - cu
-      - good bye
-      - see you later
-      - good night
-      - bye
-      - goodbye
-      - have a nice day
-      - see you around
-      - bye bye
-      - à plus
-      - au revoir
-      - à plus tard
-      - bonne nuit
-      - passe une bonne journée
-      - à bientôt
-      - salut salut
+      - Je veux réserver un hôtel
+      - Je souhaite réserver un hôtel
+      - Réserver un hôtel
+      - Je cherche un hôtel
+      - Hôtel
+
+  - intent: provide_city
+    examples: |
+      - [Saint Malo](city)
+      - C'est pour [Saint Malo](city)
+      - A [Saint Malo](city)
+      - Réservation à [Saint Malo](city)
+      - [Nice](city)
+      - A [Nice](city)
+      - C'est pour [Nice](city)
+      - Je veux réserver pour [Nice](city)
+      - Je veux réserver à [Saint Malo](city)
+
+  - intent: provide_date
+    examples: |
+      - [12 janvier](date)
+      - [12/01](date)
+      - Ce sera pour le [12 janvier](date)
+      - Le [12 janvier](date)
+      - [12 janvier](date) à [Saint Malo](city)
+      - Le [12/01](date)
 
   - intent: affirm
     examples: |
-      - yes
-      - y
-      - indeed
-      - of course
-      - that sounds good
-      - correct
       - oui
-      - ouais
-      - en effet
-      - bien sûr
-      - ça a l'air bien
+      - c'est ça
+      - tout à fait
+      - exactement
 
   - intent: deny
     examples: |
-      - no
-      - n
-      - never
-      - I don't think so
-      - don't like that
-      - no way
-      - not really
       - non
-      - jamais
-      - je ne pense pas
-      - ça ne me plaît pas
-      - hors de question
-      - pas vraiment
+      - pas du tout
+      - ce n'est pas ça
 
-  - intent: mood_great
+  - intent: thanks
     examples: |
-      - perfect
-      - great
-      - amazing
-      - feeling like a king
-      - wonderful
-      - I am feeling very good
-      - I am great
-      - I am amazing
-      - I am going to save the world
-      - super stoked
-      - extremely good
-      - so so perfect
-      - so good
-      - parfait
-      - génial
-      - incroyable
-      - je me sens comme un roi
-      - je me sens comme une reine
-      - merveilleux
-      - je me sens très bien
-      - je suis génial
-      - je suis incroyable
-      - je vais sauver le monde
-      - super excité(e)
-      - extrêmement bien
+      - merci
+      - merci beaucoup
+      - c'est gentil
+      - je te remercie
+      - merci bien
 
-  - intent: mood_unhappy
-    examples: |
-      - my day was horrible
-      - I am sad
-      - I don't feel very well
-      - I am disappointed
-      - super sad
-      - I'm so sad
-      - sad
-      - very sad
-      - unhappy
-      - not good
-      - not very good
-      - extremly sad
-      - journée horrible
-      - je suis triste
-      - je ne me sens pas très bien
-      - je suis déçu(e)
-      - super triste
-      - je suis tellement triste
-      - très triste
-      - malheureux/malheureuse
-      - pas bien
-      - pas très bon(ne)
+entities:
+  - date
+  - city
 
-  - intent: bot_challenge
-    examples: |
-      - are you a bot?
-      - are you a human?
-      - am I talking to a bot?
-      - am I talking to a human?
-      - es-tu un robot ?
-      - es-tu un humain ?
-      - est-ce que je parle à un robot ?
-      - est-ce que je parle à un humain ?
-      - es-tu un bot ?
-
-  - intent: demander_meteo
-    examples: |
-      - Quelle est la météo aujourd'hui ?
-      - Quel temps fait-il ?
-      - Peux-tu me donner la météo ?
-      - Quel temps fait-il dehors ?
-      - Est-ce qu'il va pleuvoir ?
-      - Fait-il beau aujourd'hui ?
-      - La météo de ce matin, c'est quoi ?
-      - Est-ce qu'il fait chaud dehors ?
-      - Comment est la météo pour demain ?
-      - Quel temps fait-il à Nantes ?
+regex:
+  - name: date
+    pattern: "[0-9]{2}/[0-9]{2}|[0-9]{2} [a-zA-Z]+"

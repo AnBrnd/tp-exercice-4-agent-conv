@@ -2,17 +2,27 @@ version: "3.1"
 
 rules:
 
-  - rule: Say goodbye anytime the user says goodbye
+  - rule: Greet the user
     steps:
-      - intent: goodbye
-      - action: utter_goodbye
+      - intent: greet
+      - action: utter_greet
 
-  - rule: Say 'I am a bot' anytime the user challenges
+  - rule: Ask for hotel reservation
     steps:
-      - intent: bot_challenge
-      - action: utter_iamabot
+      - intent: ask_hotel_reservation
+      - action: utter_ask_city
 
-  - rule: Give weather information when asked
+  - rule: Ask for date after city
     steps:
-      - intent: demander_meteo
-      - action: utter_meteo
+      - intent: provide_city
+      - action: utter_ask_date
+
+  - rule: Respond to thanks
+    steps:
+      - intent: thanks
+      - action: utter_thanks
+
+  - rule: Handle denial
+    steps:
+      - intent: deny
+      - action: utter_deny

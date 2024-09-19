@@ -2,46 +2,28 @@ version: "3.1"
 
 stories:
 
-  - story: happy path
+  - story: réservation d'hôtel
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: mood_great
-      - action: utter_happy
-
-  - story: sad path 1
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_cheer_up
-      - action: utter_did_that_help
+      - intent: ask_hotel_reservation
+      - action: utter_ask_city
+      - intent: provide_city
+      - action: utter_ask_date
+      - intent: provide_date
+      - action: utter_confirm_reservation
       - intent: affirm
-      - action: utter_happy
+      - action: utter_affirm
 
-  - story: sad path 2
+  - story: Handle refusal and restart
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_cheer_up
-      - action: utter_did_that_help
+      - intent: ask_hotel_reservation
+      - action: utter_ask_city
+      - intent: provide_city
+      - action: utter_ask_date
+      - intent: provide_date
+      - action: utter_confirm_reservation
       - intent: deny
-      - action: utter_goodbye
-
-  - story: ask for weather
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: demander_meteo
-      - action: utter_meteo
-
-  - story: sad and ask for weather
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: mood_unhappy
-      - action: utter_cheer_up
-      - action: utter_did_that_help
-      - intent: deny
-      - action: utter_meteo
+      - action: utter_deny
