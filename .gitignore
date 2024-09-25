@@ -1,0 +1,6 @@
+# Exclure les environnements virtuels
+venv/
+*.pyc
+__pycache__/
+.rasa/
+models/

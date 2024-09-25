@@ -1,0 +1,4 @@
+cd /mnt/c/Users/anais
+source venv/bin/activate
+cd /mnt/c/Users/anais/Documents/Agent\ conv\ et\ bot
+rasa shell

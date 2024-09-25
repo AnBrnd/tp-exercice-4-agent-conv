@@ -19,6 +19,7 @@ stories:
       - intent: affirm
       - action: utter_thanks
 
+
   - story: Handle refusal and restart
     steps:
       - intent: greet
