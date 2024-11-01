@@ -2,28 +2,38 @@ version: "3.1"
 
 intents:
   - greet
-  - ask_hotel_reservation
-  - provide_city
-  - provide_date
-  - provide_room_type
-  - provide_number_of_people
-  - affirm
-  - deny
-  - thanks
+  - demander_reservation
+  - fournir_date
+  - fournir_nombre_personnes
+  - fournir_nom
+  - fournir_numero_telephone
+  - fournir_code_reservation
+  - annuler_reservation
+  - modifier_commentaire
+  - obtenir_menu_jour
+  - merci
+  - obtenir_allergens
+  - demander_horaires
+  - demander_contact
 
 entities:
-  - city
+  - nombre_personnes
   - date
-  - room_type
-  - number_of_people
+  - nom
+  - numero_telephone
+  - code_reservation
 
 slots:
-  city:
+  nombre_personnes:
     type: text
     influence_conversation: true
     mappings:
       - type: from_entity
-        entity: city
+        entity: nombre_personnes
+      - type : custom
+        value : null
+        conditions:
+            - active_loop: null
 
   date:
     type: text
@@ -31,49 +41,89 @@ slots:
     mappings:
       - type: from_entity
         entity: date
+      - type: custom
+        value: null
+        conditions:
+          - active_loop: null
 
-  room_type:
+  nom:
     type: text
     influence_conversation: true
     mappings:
       - type: from_entity
-        entity: room_type
+        entity: nom
+      - type: custom
+        value: null
+        conditions:
+          - active_loop: null
 
-  number_of_people:
+  numero_telephone:
     type: text
     influence_conversation: true
     mappings:
       - type: from_entity
-        entity: number_of_people
+        entity: numero_telephone
+      - type: custom
+        value: null
+        conditions:
+          - active_loop: null
+
+  code_reservation:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: code_reservation
+      - type: custom
+        value: null
+        conditions:
+          - active_loop: null
 
 responses:
   utter_greet:
-    - text: "Bonjour, que puis-je faire pour vous ?"
-
-  utter_ask_city:
-    - text: "Dans quelle ville souhaitez-vous réserver l'hôtel ?"
+    - text: "Bonjour ! Que puis-je faire pour vous ?"
 
   utter_ask_date:
     - text: "Pour quelle date souhaitez-vous réserver ?"
 
-  utter_ask_room_type:
-    - text: "Quel type de chambre souhaitez-vous réserver ?"
-
   utter_ask_number_of_people:
-    - text: "Pour combien de personnes souhaitez-vous réserver ?"
+    - text: "Pour combien de personnes ?"
 
-  utter_confirm_reservation:
-    - text: "Je résume. Vous voulez une chambre {room_type} pour {number_of_people} personne(s) à {city} pour le {date}. C’est bien ça ?"
+  utter_ask_name:
+    - text: "Quel nom pour la réservation ?"
 
-  utter_affirm:
-    - text: "Super ! Je procède à la réservation."
+  utter_ask_phone_number:
+    - text: "Quel est votre numéro de téléphone ?"
 
-  utter_deny:
-    - text: "D'accord, recommençons."
+  utter_recherche_disponibilite:
+    - text: "Je vérifie les disponibilités, un instant..."
+
+  utter_reservation_confirmed:
+    - text: "Votre réservation est confirmée pour {nombre_personnes} personne(s) à la date du {date} sous le nom de {nom}."
+
+  utter_ask_reservation_code:
+    - text: "Quel est le code de votre réservation ?"
+
+  utter_reservation_canceled:
+    - text: "Votre réservation a bien été annulée."
+
+  utter_ask_comment:
+    - text: "Souhaitez-vous ajouter un commentaire à votre réservation ?"
+
+  utter_menu:
+    - text: "Voici le menu du jour : [lien]"
 
   utter_thanks:
-    - text: "Je vous en prie ! N'hésitez pas à me recontacter si vous avez besoin de quoi que ce soit."
+    - text: "Merci de nous avoir contactés !"
 
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  utter_fallback:
+    - text: "Je n'ai pas compris votre demande. Pouvez-vous reformuler ?"
+
+  utter_allergens:
+    - text: "La liste des allergènes est disponible sur notre site web ou peut vous être communiquée sur demande."
+
+  utter_horaires_ouverture:
+    - text: "Nous sommes ouverts du lundi au samedi de 11h30 à 14h30 et de 18h30 à 22h30."
+
+  utter_informations_contact:
+    - text: "Vous pouvez nous contacter au 01 23 45 67 89 ou par email à contact@restaurant.fr"

@@ -3,87 +3,148 @@ version: "3.1"
 nlu:
   - intent: greet
     examples: |
-      - bonjour
-      - salut
-      - hello
-      - bonsoir
+      - Bonjour
+      - Salut
+      - Hello
+      - Salutations
+      - Bonsoir
+      - Hey
+      - Coucou
 
-  - intent: ask_hotel_reservation
+  - intent: demander_reservation
     examples: |
-      - Je veux réserver un hôtel
-      - Je souhaite réserver un hôtel
-      - Réserver un hôtel
-      - Je cherche un hôtel
-      - Hôtel
+      - Je voudrais réserver une table
+      - Puis-je réserver pour ce soir ?
+      - J'aimerais faire une réservation
+      - Réservation pour ce midi
+      - Réserver une table pour ce soir
+      - Je souhaite une table
+      - Pouvez-vous me réserver ?
 
-  - intent: provide_city
+  - intent: fournir_date
     examples: |
-      - [Saint Malo](city)
-      - C'est pour [Saint Malo](city)
-      - A [Saint Malo](city)
-      - Réservation à [Saint Malo](city)
-      - [Nice](city)
-      - A [Nice](city)
-      - C'est pour [Nice](city)
-      - Je veux réserver pour [Nice](city)
-      - Je veux réserver à [Saint Malo](city)
+      - [Ce soir](date)
+      - [Demain midi](date)
+      - Pour le [25 septembre](date)
+      - [La semaine prochaine](date)
+      - Le [10 octobre](date)
+      - [Le 15](date)
+      - [Le 5 novembre](date)
+      - [Le 20 décembre](date)
+      - [Demain](date)
+      - [Aujourd'hui](date)
+      - Le [premier janvier](date)
+      - [29 février](date)
 
-  - intent: provide_date
+  - intent: fournir_nombre_personnes
     examples: |
-      - [12 janvier](date)
-      - [12/01](date)
-      - Ce sera pour le [12 janvier](date)
-      - Le [12 janvier](date)
-      - [12 janvier](date) à [Saint Malo](city)
-      - Le [12/01](date)
+      - Pour [deux](nombre_personnes) personnes
+      - Nous serons [trois](nombre_personnes)
+      - Une table pour [quatre](nombre_personnes)
+      - Pour [une](nombre_personnes) personne
+      - Nous serons [six](nombre_personnes)
+      - [5](nombre_personnes) personnes
+      - [Cinq](nombre_personnes)
+      - [2](nombre_personnes)
+      - [Dix](nombre_personnes) personnes
+      - Pour [10](nombre_personnes)
+      - Pour [5](nombre_personnes) personnes
+      - [Sept](nombre_personnes)
+      - Nous sommes [4](nombre_personnes)
 
-  - intent: provide_room_type
+  - intent: annuler_reservation
     examples: |
-      - Je veux une [chambre double](room_type)
-      - [Chambre simple](room_type)
-      - Une [chambre pour une personne](room_type)
-      - [Chambre familiale](room_type)
-      - Je préfère une [suite](room_type)
+      - Je voudrais annuler ma réservation
+      - Annuler ma réservation s'il vous plaît
+      - Puis-je annuler ma réservation ?
+      - J'aimerais annuler ma réservation
+      - Supprimer ma réservation
+      - Je ne peux plus venir
 
-  - intent: provide_number_of_people
+  - intent: fournir_nom
     examples: |
-      - C'est pour [une personne](number_of_people)
-      - Nous serons [deux](number_of_people)
-      - [Une personne](number_of_people)
-      - Nous serons [trois](number_of_people)
-      - [Quatre personnes](number_of_people)
-      - [Deux adultes et un enfant](number_of_people)
-      - C'est pour [une personne](number_of_people)
-      - [Deux adultes](number_of_people)
-      - Réservation pour [deux personnes](number_of_people)
-      - Il y aura [trois personnes](number_of_people)
-      - Nous serons [cinq](number_of_people)
+      - Le nom est [Dupont](nom)
+      - Réservation sous le nom de [Martin](nom)
+      - Pour monsieur [Lambert](nom)
+      - Nom de réservation: [Durand](nom)
+      - [Mathieu](nom)
+      - Réserver sous [Rousseau](nom)
 
-  - intent: affirm
+  - intent: fournir_numero_telephone
     examples: |
-      - oui
-      - c'est ça
-      - tout à fait
-      - exactement
+      - Mon numéro est [0601020304](numero_telephone)
+      - [0601020304](numero_telephone)
+      - Voici mon numéro: [0601020304](numero_telephone)
+      - [0102030405](numero_telephone)
+      - Mon tel : [0612345678](numero_telephone)
 
-  - intent: deny
+  - intent: fournir_code_reservation
     examples: |
-      - non
-      - pas du tout
-      - ce n'est pas ça
+      - Le code est 1234
+      - Voici mon code : 5678
+      - Mon code de réservation est 4321
+      - Code réservation [6789](code_reservation)
+      - [1357](code_reservation)
 
-  - intent: thanks
+  - intent: obtenir_menu_jour
     examples: |
-      - merci
-      - merci beaucoup
-      - c'est gentil
-      - je te remercie
-      - merci bien
+      - Quel est le menu du jour ?
+      - Montrez-moi le menu du jour
+      - Avez-vous le menu du jour ?
+      - Je voudrais connaître les plats du jour
+      - Menu ?
 
-entities:
-  - date
-  - city
+  - intent: modifier_commentaire
+    examples: |
+      - J'aimerais modifier le commentaire de ma réservation
+      - Puis-je ajouter un commentaire ?
+      - Ajouter une remarque à ma réservation
+      - Modifier mon commentaire de réservation
+      - J'ai une demande spéciale
+      - Pouvez-vous noter quelque chose ?
+
+  - intent: merci
+    examples: |
+      - Merci beaucoup
+      - C'est gentil, merci
+      - Merci pour votre aide
+      - Merci
+      - Parfait, merci
+
+  # Nouvelles intentions
+  - intent: obtenir_allergens
+    examples: |
+      - Quels sont les allergènes ?
+      - Liste des allergènes
+      - Je voudrais connaître les allergènes
+      - Pouvez-vous me donner les informations sur les allergènes ?
+      - Allergènes présents dans vos plats
+
+  - intent: demander_horaires
+    examples: |
+      - Quels sont vos horaires d'ouverture ?
+      - À quelle heure êtes-vous ouverts ?
+      - Vos heures d'ouverture
+      - Quand pouvons-nous venir ?
+      - Horaires du restaurant
+
+  - intent: demander_contact
+    examples: |
+      - Comment peut-on vous contacter ?
+      - Quel est votre numéro de téléphone ?
+      - Votre adresse email
+      - Comment vous joindre ?
+      - Coordonnées du restaurant
 
 regex:
+  - name: nombre_personnes
+    pattern: "[0-9]+|un|une|deux|trois|quatre|cinq|six|sept|huit|neuf|dix"
+
   - name: date
-    pattern: "[0-9]{2}/[0-9]{2}|[0-9]{2} [a-zA-Z]+"
+    pattern: "(?:(?:\\d{1,2}\\s*(?:janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre))|aujourd'hui|demain|ce soir|ce midi)"
+
+  - name: code_reservation
+    pattern: "^[0-9]{4}$"
+
+  - name: numero_telephone
+    pattern: "^0[1-9][0-9]{8}$"

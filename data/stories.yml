@@ -1,40 +1,75 @@
 version: "3.1"
 
 stories:
-
-  - story: réservation d'hôtel complète
+  - story: Salutation
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: ask_hotel_reservation
-      - action: utter_ask_city
-      - intent: provide_city
+
+  - story: Réserver une table avec option de commentaire
+    steps:
+      - intent: demander_reservation
       - action: utter_ask_date
-      - intent: provide_date
-      - action: utter_ask_room_type
-      - intent: provide_room_type
+      - intent: fournir_date
       - action: utter_ask_number_of_people
-      - intent: provide_number_of_people
-      - action: utter_confirm_reservation
-      - intent: affirm
+      - intent: fournir_nombre_personnes
+      - action: utter_ask_name
+      - intent: fournir_nom
+      - action: utter_ask_phone_number
+      - intent: fournir_numero_telephone
+      - action: utter_ask_comment
+      - intent: modifier_commentaire
+      - action: utter_reservation_confirmed
+
+
+  - story: Annuler une réservation
+    steps:
+      - intent: annuler_reservation
+      - action: utter_ask_reservation_code
+      - action: utter_reservation_canceled
+
+  - story: Obtenir le menu du jour
+    steps:
+      - intent: obtenir_menu_jour
+      - action: utter_menu
+
+  - story: Répondre au merci
+    steps:
+      - intent: merci
       - action: utter_thanks
 
-
-  - story: Handle refusal and restart
+  - story: Réservation incomplete
     steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: ask_hotel_reservation
-      - action: utter_ask_city
-      - intent: provide_city
+      - intent: demander_reservation
       - action: utter_ask_date
-      - intent: provide_date
-      - action: utter_ask_room_type
-      - intent: provide_room_type
+      - intent: fournir_date
       - action: utter_ask_number_of_people
-      - intent: provide_number_of_people
-      - action: utter_confirm_reservation
-      - intent: deny
-      - action: utter_deny
-      - action: utter_greet
-      - action: action_listen
+      - intent: fournir_nombre_personnes
+      - action: utter_ask_name
+      - intent: fournir_nom
+      - action: utter_ask_phone_number
+
+  - story: Demande d'allergènes
+    steps:
+      - intent: obtenir_allergens
+      - action: utter_allergens
+
+  - story: Demande d'horaires
+    steps:
+      - intent: demander_horaires
+      - action: utter_horaires_ouverture
+
+  - story: Demande de contact
+    steps:
+      - intent: demander_contact
+      - action: utter_informations_contact
+
+  - story: Fallback
+    steps:
+      - intent: nlu_fallback
+      - action: utter_fallback
+
+  - story: Ajouter un commentaire
+    steps:
+      - intent: modifier_commentaire
+      - action: utter_ask_comment

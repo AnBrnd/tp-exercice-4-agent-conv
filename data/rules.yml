@@ -1,40 +1,44 @@
 version: "3.1"
 
 rules:
-
-  - rule: Greet the user
+  - rule: Demander une réservation
     steps:
-      - intent: greet
-      - action: utter_greet
-
-  - rule: Ask for hotel reservation
-    steps:
-      - intent: ask_hotel_reservation
-      - action: utter_ask_city
-
-  - rule: Ask for date after city
-    steps:
-      - intent: provide_city
+      - intent: demander_reservation
       - action: utter_ask_date
 
-  - rule: Ask for room type after date
+  - rule: Obtenir le menu du jour
     steps:
-      - intent: provide_date
-      - action: utter_ask_room_type
+      - intent: obtenir_menu_jour
+      - action: utter_menu
 
-  - rule: Ask for number of people after room type
+  - rule: Annuler une réservation
     steps:
-      - intent: provide_room_type
-      - action: utter_ask_number_of_people
+      - intent: annuler_reservation
+      - action: utter_ask_reservation_code
+      - action: utter_reservation_canceled
 
-  - rule: Respond to thanks
+  - rule: Répondre au merci
     steps:
-      - intent: thanks
+      - intent: merci
       - action: utter_thanks
 
-  - rule: Handle denial
+  - rule: Fallback Rule
     steps:
-      - intent: deny
-      - action: utter_deny
-      - action: utter_greet
-      - action: action_listen
+      - intent: nlu_fallback
+      - action: utter_fallback
+
+  - rule: Renseignements généraux
+    steps:
+      - intent: obtenir_allergens
+      - action: utter_allergens
+
+  - rule: Horaires d'ouverture
+    steps:
+      - intent: demander_horaires
+      - action: utter_horaires_ouverture
+
+  - rule: Demande de contact
+    steps:
+      - intent: demander_contact
+      - action: utter_informations_contact
+
