@@ -1,5 +1,7 @@
 # TP Exercice 4 - Agent Conversationnel
 
+**Autrice :** Anaïs BERNARD
+
 Ce projet est réalisé dans le cadre d'un TP de cours et vise à développer un agent conversationnel de réservation de restaurant en utilisant le framework Rasa. L'agent est conçu pour gérer les interactions de réservation, l'annulation, et fournir des informations utiles aux utilisateurs. Nous avons également exploré l'intégration du bot avec Discord pour permettre une interaction en temps réel dans un contexte de messagerie.
 
 ## Objectifs du TP
@@ -12,12 +14,17 @@ Ce projet est réalisé dans le cadre d'un TP de cours et vise à développer un
 
 ## Table des matières
 
+- [Schéma initial](#schéma-initial)
 - [Installation](#installation)
 - [Configuration du Bot Rasa](#configuration-du-bot-rasa)
 - [Intégration avec Discord](#intégration-avec-discord)
 - [Exécution du Bot](#exécution-du-bot)
 - [Difficultés Rencontrées](#difficultés-rencontrées)
 - [Conclusion](#conclusion)
+
+## Schéma initial
+
+![Schéma intéractions](images/TP_Agent_Conv.jpg)
 
 ## Installation
 
