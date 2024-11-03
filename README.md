@@ -137,5 +137,10 @@ Au cours de ce TP, j'ai rencontré plusieurs difficultés, notamment :
 des erreurs d'importation persistent dans l'éditeur de code. Cela pourrait être lié 
 aux paramètres de l'environnement virtuel ou aux versions de Python.
 - **Configuration des règles et des histoires** : Des conflits peuvent surgir si les règles 
-et les histoires ne sont pas parfaitement alignées, entraînant des comportements inattendus
-du bot.
+et les histoires ne sont pas parfaitement alignées, entraînant des comportements inattendus du bot.
+
+## Conclusion
+Ce TP m'a permis de mieux comprendre le processus de développement d'un agent conversationnel, 
+en particulier avec Rasa. J'ai appris à structurer les données, à entraîner le modèle, et à gérer
+les interactions avec les utilisateurs. L'intégration avec Discord a également été une expérience
+intéressante pour explorer de nouveaux canaux de communication, même si je n'ai pas réussi à le faire fonctionner.
