@@ -2,7 +2,7 @@
 
 **Autrice :** Anaïs BERNARD
 
-Ce projet est réalisé dans le cadre d'un TP de cours et vise à développer un agent conversationnel de réservation de restaurant en utilisant le framework Rasa. L'agent est conçu pour gérer les interactions de réservation, l'annulation, et fournir des informations utiles aux utilisateurs. Nous avons également exploré l'intégration du bot avec Discord pour permettre une interaction en temps réel dans un contexte de messagerie.
+Ce projet est réalisé dans le cadre d'un TP de cours et vise à développer un agent conversationnel de réservation de restaurant en utilisant le framework Rasa. L'agent est conçu pour gérer les interactions de réservation, l'annulation, et fournir des informations utiles aux utilisateurs. J'ai aussi exploré l'intégration du bot avec Discord pour permettre une interaction en temps réel dans un contexte de messagerie.
 
 ## Objectifs du TP
 
@@ -65,7 +65,7 @@ S'assurer que les bibliothèques suivantes sont installées :
 ## Configuration du bot Rasa
 ### Fichiers de configuration
 
-Nous avons configuré plusieurs fichiers essentiels dans Rasa pour permettre au bot 
+J'ai configuré plusieurs fichiers essentiels dans Rasa pour permettre au bot 
 de répondre correctement aux intentions de réservation, d'annulation, et de demande 
 d'informations.
 
@@ -85,7 +85,7 @@ Exemple de structure :
    - text: "Bonjour ! Que puis-je faire pour vous ?"
     ```
 
-2. *nlu.yml* : Nous avons ajouté des exemples d'expressions pour chaque intention (salutation,
+2. *nlu.yml* : J'ai ajouté des exemples d'expressions pour chaque intention (salutation,
 demande de réservation, etc.) afin de permettre à Rasa de mieux comprendre les intentions des
 utilisateurs.
 
@@ -99,14 +99,14 @@ Par exemple, répondre avec un remerciement lorsqu'un utilisateur dit "merci".
 5. *credentials.yml* : Ce fichier configure les canaux de communication, y compris Discord.
 
 ### Entraînement du modèle
-Avant de tester ou d'exécuter le bot, nous devons entraîner le modèle. Pour cela, nous utilisons la commande :
+Avant de tester ou d'exécuter le bot, nous devons entraîner le modèle. Pour cela, on utilise la commande :
 ```bash
 rasa train
 ```
 Cette commande entraîne le modèle en utilisant les données fournies dans les fichiers de configuration.
 
 ## Intégration avec Discord
-Pour ce TP, nous avons exploré l'intégration de notre bot Rasa avec Discord pour rendre l'interaction 
+Pour ce TP, j'ai exploré l'intégration du bot Rasa avec Discord pour rendre l'interaction 
 plus accessible. Cela implique la création d'un fichier discord_channel.py pour configurer le client Discord.
 
 ### Fichier *discord_channel.py*
